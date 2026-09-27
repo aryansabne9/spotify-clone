@@ -39,3 +39,7 @@ The API health check is available at `http://localhost:5001/api/health`. The Vit
 ## Notes
 
 The seed uses remote demo cover images and sample audio URLs. Replace those URLs with media you own or are licensed to use before distributing a public build. Audio playback depends on network access to the sample host. This project is a learning portfolio demo, not a production streaming service.
+
+## Vercel
+
+Import this repository into Vercel with the repository root as the project root. The included `vercel.json` builds the Vite client into `public/`, rewrites browser routes to the SPA, and leaves `/api/*` on the Express app. Add `MONGODB_URI` and a strong `JWT_SECRET` in Vercel Project Settings before using account or playlist features. Do not add secrets to GitHub. Without a hosted MongoDB URI, the static demo catalog remains visible but database-backed API features will return errors.

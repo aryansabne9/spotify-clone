@@ -3,7 +3,7 @@ import mongoose from 'mongoose';
 import { connectDatabase } from './config/db.js';
 import Track from './models/Track.js';
 
-dotenv.config({ path: new URL('../../.env', import.meta.url) });
+dotenv.config({ path: new URL('../.env', import.meta.url) });
 
 const tracks = [
   { title: 'Night Drive', artist: 'The Midnight', album: 'After Hours', duration: 231, genre: 'Synthwave', coverUrl: 'https://images.unsplash.com/photo-1519608487953-e999c86e7455?auto=format&fit=crop&w=500&q=80', audioUrl: 'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', plays: 5400 },
