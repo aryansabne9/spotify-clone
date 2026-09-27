@@ -42,4 +42,4 @@ The seed uses remote demo cover images and sample audio URLs. Replace those URLs
 
 ## Vercel
 
-Import this repository into Vercel with the repository root as the project root. The included `vercel.json` builds the Vite client into `public/`, rewrites browser routes to the SPA, and leaves `/api/*` on the Express app. Add `MONGODB_URI` and a strong `JWT_SECRET` in Vercel Project Settings before using account or playlist features. Do not add secrets to GitHub. Without a hosted MongoDB URI, the static demo catalog remains visible but database-backed API features will return errors.
+Import this repository into Vercel with **Root Directory left at the repository root** (do not set it to `client`). The included `vercel.json` builds the Vite client into `public/`, rewrites browser routes to the SPA, and leaves `/api/*` on the Express app. Add `MONGODB_URI` and a strong `JWT_SECRET` in Vercel Project Settings before using account or playlist features. Do not add secrets to GitHub. Without a hosted MongoDB URI, the static demo catalog remains visible but database-backed API features will return errors.
