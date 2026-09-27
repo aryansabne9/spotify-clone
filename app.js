@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import express from 'express';
 import cors from 'cors';
+import { fileURLToPath } from 'node:url';
 import { connectDatabase } from './server/config/db.js';
 import authRoutes from './server/routes/auth.js';
 import trackRoutes from './server/routes/tracks.js';
@@ -19,7 +20,8 @@ app.get('/api/health', (_req, res) => res.json({ status: 'ok', service: 'spotify
 app.use('/api/auth', authRoutes);
 app.use('/api/tracks', trackRoutes);
 app.use('/api/playlists', playlistRoutes);
-app.use((_req, res) => res.status(404).json({ message: 'Route not found.' }));
+app.use('/api', (_req, res) => res.status(404).json({ message: 'Route not found.' }));
+app.get('*', (_req, res) => res.sendFile(fileURLToPath(new URL('./public/index.html', import.meta.url))));
 app.use((error, _req, res, _next) => {
   if (error.code === 11000) return res.status(409).json({ message: 'An account with that email already exists.' });
   if (error.name === 'ValidationError' || error.name === 'CastError') return res.status(400).json({ message: error.message });
